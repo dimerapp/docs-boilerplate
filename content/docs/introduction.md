@@ -26,7 +26,7 @@ The docs boilerplate is built around the following workflow requirements.
 
 ## Folder structure
 
-```sh
+```
 .
 ├── assets
 │  ├── app.css
