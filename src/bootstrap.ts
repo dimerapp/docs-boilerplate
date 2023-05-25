@@ -29,8 +29,8 @@ view.use(uiKit.default)
  * Globally loads the config file
  */
 view.global(
-  'contentConfig',
-  JSON.parse(await readFile(new URL('../content/config.json', import.meta.url), 'utf-8'))
+  'getConfig',
+  async () => JSON.parse(await readFile(new URL('../content/config.json', import.meta.url), 'utf-8'))
 )
 
 /**
@@ -69,7 +69,7 @@ pipeline.use(docsHook).use((node) => {
  */
 export const renderer = new Renderer(view, pipeline)
   .codeBlocksTheme('material-theme-palenight')
-  .useTemplate('pages/docs')
+  .useTemplate('docs')
 
 /**
  * Adding grammars

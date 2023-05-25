@@ -1,7 +1,8 @@
 @layout('layouts/main')
+@set('siteConfig', await getConfig())
 
 @section('body')
-  @component('docs::header', contentConfig)
+  @component('docs::header', siteConfig)
     @slot('logo')
       @include('partials/logo')
     @end
@@ -21,8 +22,8 @@
       @!component('docs::content_header', { title: file.frontmatter.title })
 
       @component('docs::content', {
-        fileEditUrl: `${contentConfig.fileEditBaseUrl}/${app.relativePath(file.filePath)}`,
-        copyright: contentConfig.copyright
+        fileEditUrl: `${siteConfig.fileEditBaseUrl}/${app.relativePath(file.filePath)}`,
+        copyright: siteConfig.copyright
       })
         @!component('docs::doc_errors', { messages: file.messages })
         @!component('dimer_contents', { nodes: file.ast.children, pipeline })~

@@ -1,7 +1,7 @@
 {
   "typescript": true,
   "directories": {
-    "views": "src/templates",
+    "views": "templates",
     "public": "dist"
   },
   "providers": [

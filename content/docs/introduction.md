@@ -13,10 +13,15 @@ So, if I have all the tools at my disposal, why not build and use something simp
 The docs boilerplate is built around the following workflow requirements.
 
 - Create a highly customizable markdown rendering pipeline. I need control over rendering every markdown element and tweaking its HTML output per my requirements. This is powered by [@dimerapp/markdown](https://github.com/dimerapp/markdown) and [@dimerapp/edge](https://github.com/dimerapp/edge) packages.
+
 - Use [Shiki](https://github.com/shikijs/shiki) for styling codeblocks. Shiki uses VSCode themes and grammar for syntax highlighting and requires zero frontend code.
+
 - Use a [base HTML and CSS theme](https://github.com/dimerapp/docs-theme) to avoid re-building documentation websites from scratch every time. But still allow customizations to add personality to each website.
+
 - Use a dumb JSON file to render the docs sidebar (JSON database file). Scanning files & folders and sorting them by some convention makes refactoring a lot harder.
+
 - Allow linking to markdown files and auto-resolve their URLs when rendering to HTML.
+
 - Allow keeping images and videos next to markdown content and auto-resolve their URLs when rendering to HTML.
 
 ## Folder structure
