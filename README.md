@@ -179,6 +179,17 @@ We use a very minimal configuration file to update certain website sections. The
   }
   ```
 
+- `search`: Optionally, you can define config for the Algolia search.
+  ```json
+  {
+    "search": {
+      "appId": "",
+      "indexName": "",
+      "apiKey": ""
+    }
+  }
+  ```
+
 ## Creating new collections
 You may create multiple collections by defining them inside the `src/collections.ts` file. 
 
