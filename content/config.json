@@ -9,6 +9,10 @@
       "href": "https://github.com/dimerapp"
     }
   },
+  "sponsors_sources": [
+  ],
+  "search": {
+  },
   "fileEditBaseUrl": "https://github.com/dimerapp/docs-boilerplate/blob/develop",
   "copyright": "Your project legal name"
 }
