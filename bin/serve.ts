@@ -33,8 +33,11 @@ const IMPORTER = (filePath: string) => {
  * Defining routes for development server
  */
 async function defineRoutes() {
+  const { default: server } = await import('@adonisjs/core/services/server')
   const { collections } = await import('#src/collections')
   const { default: router } = await import('@adonisjs/core/services/router')
+
+  server.use([() => import('@adonisjs/static/static_middleware')])
 
   router.get('*', async ({ request, response }) => {
     for (let collection of collections) {
@@ -53,9 +56,16 @@ new Ignitor(APP_ROOT, { importer: IMPORTER })
   .tap(app => {
     app.initiating(() => {
       app.useConfig({
+        appUrl: process.env.APP_URL || '',
         app: {
           appKey: 'zKXHe-Ahdb7aPK1ylAJlRgTefktEaACi',
           http: {},
+        },
+        static: {
+          enabled: true,
+          etag: true,
+          lastModified: true,
+          dotFiles: 'ignore',
         },
         logger: {
           default: 'app',

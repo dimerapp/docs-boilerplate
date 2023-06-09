@@ -15,13 +15,13 @@
     @end
 
     <meta property="og:type" content="website">
-    {{-- <meta property="og:url" content="https://japa.dev"> --}}
+    <meta property="og:url" content="{{ app.config.get('appUrl') }}">
     <meta property="og:title" content="{{ file.frontmatter.title }}">
     @if(file.frontmatter.summary)
       <meta name="og:description" content="{{ file.frontmatter.summary }}">
     @end
 
-    {{-- <meta property="twitter:url" content="https://japa.dev"> --}}
+    <meta property="twitter:url" content="{{ app.config.get('appUrl') }}">
     <meta property="twitter:title" content="{{ file.frontmatter.title }}">
     @if(file.frontmatter.summary)
       <meta name="twitter:description" content="{{ file.frontmatter.summary }}">
