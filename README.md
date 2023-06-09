@@ -275,3 +275,18 @@ trigger is displayed in mobile view only.
     @end
   @end
   ```
+
+## Deployment
+The docs boilerplate allows you to create a static build and deploy it on any CDN including Netlify, Cloudflare pages and so on.
+
+You can create the static build using the `npm run export` command. The command runs the following actions.
+
+- Create a production build for assets using Vite.
+- Convert collections to HTML pages.
+- Copy everything to the `dist` directory.
+
+Once the build is created, you can deploy the `dist` directory as it has everything to serve the website.
+
+### Environment variables
+
+When creating the build, you must set the `APP_URL` environment variable to generate correct links for the `og:url` and `twitter:url` meta tags. The env variable should point to the production URL of your website.  
