@@ -12,6 +12,7 @@
 import 'reflect-metadata'
 import { cp } from 'node:fs/promises'
 import { Ignitor } from '@adonisjs/core'
+import { defineConfig } from '@adonisjs/vite'
 
 /**
  * URL to the application root. AdonisJS need it to resolve
@@ -69,9 +70,7 @@ const app = new Ignitor(APP_ROOT, { importer: IMPORTER })
             },
           },
         },
-        views: {
-          cache: false,
-        }
+        vite: defineConfig({}),
       })
     })
   })
