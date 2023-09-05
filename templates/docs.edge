@@ -29,7 +29,7 @@
       @end
 
       @if(file.toc)
-        @component('docs::toc')
+        @component('docs::toc', { sponsors: siteConfig.advertising_sponsors })
           @!component('dimer_element', { node: file.toc, pipeline })~
         @end
       @end
