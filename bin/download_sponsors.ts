@@ -9,7 +9,7 @@
 */
 
 import { request } from 'undici'
-import { readFile, writeFile } from 'fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 
 /**
  * The file path to the config.json file
@@ -46,8 +46,10 @@ export async function downloadSponsors() {
     for (let source of sources) {
       const { body } = await request(source)
       const sponsors = await body.json()
-      sponsorsList = sponsorsList.concat(sponsors)
-      console.log(`Downloaded "${sponsors.length} sponsors" from "${source}"`)
+      if (Array.isArray(sponsors)) {
+        sponsorsList = sponsorsList.concat(sponsors)
+        console.log(`Downloaded "${sponsors.length} sponsors" from "${source}"`)
+      }
     }
 
     await writeFile(SPONSORS_FILE_PATH, JSON.stringify(sponsorsList))
